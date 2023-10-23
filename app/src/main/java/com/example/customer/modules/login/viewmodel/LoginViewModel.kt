@@ -7,34 +7,34 @@ import androidx.lifecycle.viewModelScope
 import com.example.customer.modules.login.model.UserData
 import com.example.customer.network.CustomerApiHelper
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
-    private var userData = MutableLiveData<UserData?>()
-    private var isLoginSuccess = MutableLiveData<Boolean>()
 
-    fun login(userName: String, userPassWord: String) {
+    private val _userData = MutableLiveData<UserData?>()
+    val userData: MutableLiveData<UserData?> get() = _userData
+
+    private val _isLoginSuccess = MutableLiveData<Boolean>()
+    val isLoginSuccess: MutableLiveData<Boolean> get() = _isLoginSuccess
+
+    fun login(userName: String, userPassword: String) {
         viewModelScope.launch {
-            CustomerApiHelper.api.login(userName, userPassWord).apply {
-                //set the success value to live data
-                isLoginSuccess.value = isSuccessful
-
-                //set success response to live data. otherwise null
-                if (isSuccessful) {
-                    //try catch to catch NoSuchElementException
-                    try {
-
-                        //taking first  element from list
-                        userData.value = body()?.first() //this line causes NoSuchElementException
-                    } catch (e: NoSuchElementException) {
-                        e.printStackTrace()
-                        Log.i("Exception", "login: $e")
-
-                        //set userdata to null
-                        userData.value = null
-                    }
+            val response: Response<List<UserData>> =
+                CustomerApiHelper.api.login(userName, userPassword)
+            if (response.isSuccessful) {
+                val userResponse = response.body()
+                if (!userResponse.isNullOrEmpty()) {
+                    _userData.value = userResponse.first()
+                    _isLoginSuccess.value = true
                 } else {
-                    Log.i("Exception", "login: ${errorBody().toString()}")
+                    _userData.value = null
+                    _isLoginSuccess.value = false
                 }
+            } else {
+                // Handle the error condition, e.g., show an error message
+                Log.e("LoginViewModel", "Error: ${response.code()} - ${response.message()}")
+                _userData.value = null
+                _isLoginSuccess.value = false
             }
         }
     }
