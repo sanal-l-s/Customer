@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Customer</string>
     <string name="label_login">Login</string>
     <string name="label_username">Username</string>
     <string name="label_password">Password</string>
-    <string name="label_signup">Don\'t have an accoun? Signup</string>
-    <string name="error_message_login">Login Failed</string>
 </resources>
