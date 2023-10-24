@@ -1,11 +1,13 @@
 package com.example.customer.modules.login
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.customer.databinding.ActivityLoginBinding
+import com.example.customer.modules.homepage.HomePageActivity
 import com.example.customer.modules.login.model.UserData
 import com.example.customer.modules.login.viewmodel.LoginViewModel
 import com.example.customer.util.hide
@@ -42,9 +44,14 @@ class LoginActivity : AppCompatActivity() {
 
     private fun observeUserdata() {
         viewModel.userData.observe(this) { userData ->
+            storeUserData(userData)
+
             if (userData != null) {
                 // Login was successful, you have the user data in 'userData'
                 binding.root.showShortToast("Login Success")
+
+                startHomeActivity()
+
             } else if (viewModel.isLoginSuccess.value == false) {
                 // Login failed
                 // Handle the failure, e.g., show an error message
@@ -75,5 +82,11 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+    private fun startHomeActivity() {
+        startActivity(Intent(this, HomePageActivity::class.java))
+        finish()
+    }
+
 
 }
