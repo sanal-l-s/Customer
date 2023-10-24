@@ -1,9 +1,12 @@
 package com.example.customer.modules.login
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.customer.databinding.ActivityLoginBinding
+import com.example.customer.modules.login.model.UserData
 import com.example.customer.modules.login.viewmodel.LoginViewModel
 import com.example.customer.util.hide
 import com.example.customer.util.show
@@ -12,6 +15,13 @@ import com.example.customer.util.showShortToast
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
+    private val sharedPref: SharedPreferences by lazy {
+        getSharedPreferences(
+            "CustomerPref",
+            Context.MODE_PRIVATE
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,8 +51,19 @@ class LoginActivity : AppCompatActivity() {
                 binding.root.showShortToast("Login Failed")
             }
 
+            storeUserData(userData)
+
             binding.pbLogin.hide()
         }
+    }
+
+    private fun storeUserData(userData: UserData?) {
+        sharedPref.edit().apply {
+            putString("userId", userData?.userId)
+            putString("userName", userData?.userName)
+            putString("userPhone", userData?.userPhone)
+            putString("userMail", userData?.userMail)
+        }.apply()
     }
 
     private fun login() {
