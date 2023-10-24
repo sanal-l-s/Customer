@@ -7,4 +7,13 @@
     <string name="error_message_login">Login Failed</string>
     <string name="label_dashboard">Dashboard</string>
     <string name="label_profile">Profile</string>
+    <string name="welcome">Welcome ..</string>
+    <string name="banner">create an account to get the service</string>
+    <string name="username_hint">User Name</string>
+    <string name="email_hint">E-mail</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="password_hint">Password</string>
+    <string name="button_">SignUp</string>
+    <string name="signupText">Already have an account?</string>
+    <string name="loginText">Login</string>
 </resources>
