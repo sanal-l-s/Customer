@@ -1,4 +1,4 @@
-package com.example.customer.signuppage.network
+package com.example.customer.modules.signup.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

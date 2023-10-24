@@ -1,8 +1,8 @@
-package com.example.customer.signuppage.network
+package com.example.customer.modules.signup.network
 
 
-import com.example.customer.signuppage.model.SignUpResponse
-import com.example.customer.signuppage.model.UserData
+import com.example.customer.modules.signup.model.SignUpResponse
+import com.example.customer.modules.signup.model.UserData
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

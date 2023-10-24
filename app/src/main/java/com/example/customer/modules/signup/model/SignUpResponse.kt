@@ -1,4 +1,4 @@
-package com.example.customer.signuppage.model
+package com.example.customer.modules.signup.model
 
 import com.google.gson.annotations.SerializedName
 

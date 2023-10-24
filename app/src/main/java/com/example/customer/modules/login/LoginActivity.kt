@@ -1,4 +1,4 @@
-package com.example.customer.signuppage.login
+package com.example.customer.modules.login
 
 import android.content.Context
 import android.content.Intent

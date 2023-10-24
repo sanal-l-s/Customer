@@ -1,10 +1,11 @@
-package com.example.customer
+package com.example.customer.modules
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.customer.R
 import com.example.customer.modules.homepage.HomePageActivity
 import com.example.customer.modules.login.LoginActivity
 

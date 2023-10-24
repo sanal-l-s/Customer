@@ -1,16 +1,15 @@
-package com.example.customer.signuppage.viewmodel
+package com.example.customer.modules.signup.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.customer.signuppage.network.ApiInterface
-import com.example.customer.signuppage.network.RetrofitHelper
-import com.example.customer.signuppage.model.SignUpResponse
-import com.example.customer.signuppage.model.UserData
+import com.example.customer.modules.signup.model.SignUpResponse
+import com.example.customer.modules.signup.model.UserData
+import com.example.customer.modules.signup.network.ApiInterface
+import com.example.customer.modules.signup.network.RetrofitHelper
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class SignUpViewModel : ViewModel(){
     var signup:MutableLiveData<SignUpResponse> = MutableLiveData()

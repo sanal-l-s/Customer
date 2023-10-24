@@ -1,4 +1,4 @@
-package com.example.customer.signuppage.model
+package com.example.customer.modules.signup.model
 
 data class UserData(
     val userName: String,

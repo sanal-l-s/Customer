@@ -1,15 +1,14 @@
-package com.example.customer.signuppage.module
+package com.example.customer.modules.signup
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.customer.R
-import com.example.customer.signuppage.viewmodel.SignUpViewModel
-import com.example.customer.signuppage.model.UserData
-import java.lang.Exception
+import com.example.customer.modules.signup.model.UserData
+import com.example.customer.modules.signup.viewmodel.SignUpViewModel
 
 
 class Signup : AppCompatActivity() {
