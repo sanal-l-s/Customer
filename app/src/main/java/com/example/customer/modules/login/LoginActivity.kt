@@ -10,6 +10,7 @@ import com.example.customer.databinding.ActivityLoginBinding
 import com.example.customer.modules.homepage.HomePageActivity
 import com.example.customer.modules.login.model.UserData
 import com.example.customer.modules.login.viewmodel.LoginViewModel
+import com.example.customer.modules.signup.Signup
 import com.example.customer.util.hide
 import com.example.customer.util.show
 import com.example.customer.util.showShortToast
@@ -38,6 +39,10 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
         observeUserdata()
+
+        binding.txtSignup.setOnClickListener {
+            startSignupActivity()
+        }
 
 
     }
@@ -86,6 +91,10 @@ class LoginActivity : AppCompatActivity() {
     private fun startHomeActivity() {
         startActivity(Intent(this, HomePageActivity::class.java))
         finish()
+    }
+
+    private fun startSignupActivity() {
+        startActivity(Intent(this, Signup::class.java))
     }
 
 
